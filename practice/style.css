@@ -1,0 +1,28 @@
+header {
+  color: pink;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+main h1 {
+  color: violet;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+main p {
+  color: green;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+main div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+
+footer {
+  background-color: aqua;
+  color: purple;
+}
