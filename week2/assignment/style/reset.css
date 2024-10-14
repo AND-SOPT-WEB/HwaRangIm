@@ -145,10 +145,14 @@ body {
 :root {
   --black: #17171a;
   --lightgray: #f4f4f4;
+  --lightgray2: #c6cad4;
   --darkgray: #3e3f45;
   --white: #fff;
   --blue: #3c92ff;
-  --yellow: #ffcc60;
+  --purple1: #5451ff;
+  --purple2: #6360ff;
+  --purple3: #9997ff;
+  --purple4: #bbb9ff;
 }
 
 body {

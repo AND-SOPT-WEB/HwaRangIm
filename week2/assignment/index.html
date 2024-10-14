@@ -19,6 +19,68 @@
       <h1>회원 관리 페이지</h1>
       <h4>🌊AND SOPT 웹 OB 임화랑🌊</h4>
     </header>
+    <main>
+      <section class="filter-section">
+        <div class="filter">
+          <div class="filter-item full-width">
+            <label for="name">이름</label>
+            <input id="name" type="text" placeholder="이름을 입력하세요" />
+          </div>
+          <div class="filter-item full-width">
+            <label for="eng-name">영문이름</label>
+            <input
+              id="eng-name"
+              type="text"
+              placeholder="영문이름을 입력하세요"
+            />
+          </div>
+          <div class="filter-item one-third-width">
+            <label for="github">GitHub</label>
+            <input
+              id="github"
+              type="text"
+              placeholder="GitHub ID를 입력하세요"
+            />
+          </div>
+          <div class="filter-item one-third-width">
+            <label for="gender">성별</label>
+            <select id="gender" aria-placeholder="성별 선택">
+              <option value="" disabled selected>성별 선택</option>
+              <option value="male">남자</option>
+              <option value="female">여자</option>
+            </select>
+          </div>
+          <div class="filter-item one-third-width">
+            <label for="role">역할</label>
+            <select id="role" aria-placeholder="OB / YB 선택">
+              <option value="" disabled selected>OB / YB 선택</option>
+              <option value="OB">OB</option>
+              <option value="YB">YB</option>
+            </select>
+          </div>
+          <div class="filter-item half-width">
+            <label for="week1-group">1주차 금잔디조</label>
+            <input
+              id="week1-group"
+              type="number"
+              placeholder="1주차 금잔디조를 입력하세요 (1~9)"
+            />
+          </div>
+          <div class="filter-item half-width">
+            <label for="week2-group">2주차 금잔디조</label>
+            <input
+              id="week2-group"
+              type="number"
+              placeholder="2주차 금잔디조를 입력하세요 (1~9)"
+            />
+          </div>
+        </div>
+        <div class="buttons">
+          <button class="reset-button">초기화</button>
+          <button class="search-button">검색</button>
+        </div>
+      </section>
+    </main>
     <script src="main.js" type="module"></script>
   </body>
 </html>
