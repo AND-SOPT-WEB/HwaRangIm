@@ -1,0 +1,28 @@
+/* header */
+.header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 1.7rem 1rem;
+  background-color: var(--yellow);
+}
+.header span {
+  display: flex;
+  justify-content: flex-start;
+  width: 33.3%;
+}
+.header h1 {
+  display: flex;
+  justify-content: center;
+  width: 33.3%;
+  font-size: 3.6rem;
+  font-weight: 600;
+}
+.header h4 {
+  display: flex;
+  justify-content: flex-end;
+  width: 33.3%;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--white);
+}
