@@ -78,7 +78,7 @@ main {
 }
 
 .filter-item.full-width {
-  grid-column: 1 / 7;
+  grid-column: span 6;
 }
 
 .filter-item.one-third-width {
