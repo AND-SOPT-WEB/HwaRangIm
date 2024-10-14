@@ -88,7 +88,7 @@ main {
   grid-column: span 3;
 }
 
-.buttons {
+.filter-buttons {
   display: flex;
   gap: 1rem;
   width: 100%;
@@ -110,4 +110,55 @@ main {
 }
 .search-button {
   background-color: var(--purple4);
+}
+
+/* member-list */
+.member-list-section {
+  width: 100%;
+  margin-top: 5rem;
+}
+.member-list-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.delete-button,
+.add-button {
+  width: 9rem;
+  height: 3rem;
+  border-radius: 6px;
+  color: var(--white);
+
+  cursor: pointer;
+}
+.delete-button {
+  background-color: var(--purple1);
+}
+.add-button {
+  background-color: var(--purple4);
+}
+
+table {
+  width: 100%;
+  border: 1px solid var(--black);
+  border-collapse: collapse;
+}
+thead {
+  background-color: var(--purple3);
+  color: var(--white);
+  font-weight: 700;
+}
+th,
+td {
+  height: 3rem;
+  font-size: 1.2rem;
+  vertical-align: middle;
+  text-align: center;
+  border-bottom: 1px solid var(--black);
+}
+th,
+td:not(:last-child) {
+  border-right: 1px solid var(--black);
 }
