@@ -1,0 +1,65 @@
+#modal {
+  border: 2px solid var(--purple1);
+  border-radius: 10px;
+  padding: 0;
+}
+.modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 40rem;
+  padding: 1.5rem 1rem;
+}
+#modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  i {
+    cursor: pointer;
+  }
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  label {
+    color: var(--purple2);
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  input,
+  select {
+    border: 1px solid var(--purple3);
+    border-radius: 5px;
+    outline: none;
+    padding: 1rem;
+    font-size: 1.4rem;
+  }
+}
+
+.add-member {
+  width: 100%;
+  padding: 1rem 0;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  background-color: var(--purple2);
+  color: var(--white);
+}

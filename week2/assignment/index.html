@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
   </head>
   <body>
     <header class="header">
@@ -102,6 +103,74 @@
         </table>
       </section>
     </main>
+    <dialog id="modal">
+      <!-- dialog의 기본 패딩영억을 지우고 정확한 클릭 영역을 잡기 위함 -->
+      <div class="modal-wrapper">
+        <div class="modal-header">
+          <h1>새 멤버 추가</h1>
+          <i class="fas fa-times fa-3x" id="modal-close"></i>
+        </div>
+        <form class="modal-form">
+          <div class="form-item">
+            <label for="modal-name">이름</label>
+            <input
+              type="text"
+              id="modal-name"
+              placeholder="이름을 입력하세요"
+            />
+          </div>
+          <div class="form-item">
+            <label for="modal-eng-name">영문 이름</label>
+            <input
+              type="text"
+              id="modal-eng-name"
+              placeholder="영문 이름을 입력하세요"
+            />
+          </div>
+          <div class="form-item">
+            <label for="modal-github">GitHub ID</label>
+            <input
+              type="text"
+              id="modal-github"
+              placeholder="GitHub ID를 입력하세요"
+            />
+          </div>
+          <div class="form-item">
+            <label for="modal-gender">성별</label>
+            <select id="modal-gender" aria-placeholder="성별 선택">
+              <option value="" disabled selected>성별 선택</option>
+              <option value="male">남자</option>
+              <option value="female">여자</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <label for="modal-role">역할</label>
+            <select id="modal-role" aria-placeholder="OB / YB 선택">
+              <option value="" disabled selected>OB / YB 선택</option>
+              <option value="OB">OB</option>
+              <option value="YB">YB</option>
+            </select>
+          </div>
+          <div class="form-item">
+            <label for="modal-week1-group">1주차 금잔디조</label>
+            <input
+              id="modal-week1-group"
+              type="number"
+              placeholder="1주차 금잔디조를 입력하세요 (1~9)"
+            />
+          </div>
+          <div class="form-item">
+            <label for="modal-week2-group">2주차 금잔디조</label>
+            <input
+              id="modal-week2-group"
+              type="number"
+              placeholder="2주차 금잔디조를 입력하세요 (1~9)"
+            />
+          </div>
+          <button class="add-member" type="submit">추가</button>
+        </form>
+      </div>
+    </dialog>
     <script type="module" src="./scripts/main.js"></script>
   </body>
 </html>

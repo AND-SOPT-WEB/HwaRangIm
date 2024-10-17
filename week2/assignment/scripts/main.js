@@ -3,11 +3,17 @@ import { renderMembers } from "./render.js";
 import { filterMembers, resetMembers } from "./filter.js";
 import { checkAllBtn, isAllChecked } from "./checkAll.js";
 import deleteMember from "./deleteMember.js";
+import addNewMember from "./addMember.js";
 
 const searchButton = document.querySelector(".search-button");
 const resetButton = document.querySelector(".reset-button");
 const checkAll = document.querySelector("#check-all-btn");
 const deleteButton = document.querySelector(".delete-button");
+const addButton = document.querySelector(".add-button");
+const modal = document.getElementById("modal");
+const modalCloseBtn = document.getElementById("modal-close");
+const addMemberForm = document.querySelector(".modal-form");
+// const addMemberBtn = document.querySelector(".add-member");
 
 if (!localStorage.getItem("membersData")) {
   localStorage.setItem("membersData", JSON.stringify(members));
@@ -50,4 +56,26 @@ deleteButton.addEventListener("click", () => {
   membersData = deleteMember(membersData);
   renderMembers(membersData);
   addCheckboxListeners();
+});
+
+addButton.addEventListener("click", () => {
+  modal.showModal();
+});
+modalCloseBtn.addEventListener("click", () => {
+  modal.close();
+});
+modal.addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) modal.close();
+});
+
+addMemberForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const newMember = addNewMember(membersData);
+  if (newMember) {
+    membersData.push(newMember);
+    renderMembers(membersData);
+    addCheckboxListeners();
+    modal.close();
+    addMemberForm.reset();
+  }
 });
