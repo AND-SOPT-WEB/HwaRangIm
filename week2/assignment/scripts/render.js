@@ -18,10 +18,10 @@ export const renderMembers = (membersData) => {
     tr.setAttribute("id", id);
 
     tr.innerHTML = `
-      <td><input type="checkbox" class="check_item" /></td>
+      <td><input type="checkbox" class="check-item" /></td>
       <td id="name">${name}</td>
       <td id="eng-name">${englishName}</td>
-      <td id="github">${github}</td>
+      <td id="github"><a href="https://github.com/${github}" target="_blank">${github}</a></td>
       <td id="gender">${gender === "male" ? "남자" : "여자"}</td>
       <td id="role">${role}</td>
       <td id="week1-group">${firstWeekGroup}</td>

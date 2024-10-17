@@ -1,16 +1,22 @@
 import members from "../constants/members.js";
 import { renderMembers } from "./render.js";
 import { filterMembers, resetMembers } from "./filter.js";
+import checkAllBtn from "./checkAll.js";
+import deleteMember from "./deleteMember.js";
+
+const searchButton = document.querySelector(".search-button");
+const resetButton = document.querySelector(".reset-button");
+const checkAll = document.querySelector("#check-all-btn");
+const deleteButton = document.querySelector(".delete-button");
 
 if (!localStorage.getItem("membersData")) {
   localStorage.setItem("membersData", JSON.stringify(members));
 }
 
-const membersData = JSON.parse(localStorage.getItem("membersData"));
+let membersData = JSON.parse(localStorage.getItem("membersData"));
 
 renderMembers(membersData);
 
-const searchButton = document.querySelector(".search-button");
 searchButton.addEventListener("click", () => {
   const filters = {
     name: document.querySelector("#name").value,
@@ -26,5 +32,12 @@ searchButton.addEventListener("click", () => {
   renderMembers(filteredMembers);
 });
 
-const resetButton = document.querySelector(".reset-button");
 resetButton.addEventListener("click", resetMembers);
+
+checkAll.addEventListener("change", (e) => checkAllBtn(e));
+
+deleteButton.addEventListener("click", () => {
+  checkAll.checked = false;
+  membersData = deleteMember(membersData);
+  renderMembers(membersData);
+});

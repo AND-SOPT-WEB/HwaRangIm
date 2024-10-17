@@ -122,8 +122,8 @@ table {
   border-spacing: 0;
 }
 a {
-  text-decoration: none;
-  color: var(--white);
+  text-decoration: underline;
+  color: var(--black);
 }
 button {
   background: none;
