@@ -1,7 +1,7 @@
 import members from "../constants/members.js";
 import { renderMembers } from "./render.js";
 import { filterMembers, resetMembers } from "./filter.js";
-import checkAllBtn from "./checkAll.js";
+import { checkAllBtn, isAllChecked } from "./checkAll.js";
 import deleteMember from "./deleteMember.js";
 
 const searchButton = document.querySelector(".search-button");
@@ -15,7 +15,15 @@ if (!localStorage.getItem("membersData")) {
 
 let membersData = JSON.parse(localStorage.getItem("membersData"));
 
+const addCheckboxListeners = () => {
+  const checkBoxes = document.querySelectorAll(".check-item");
+  checkBoxes.forEach((checkbox) =>
+    checkbox.addEventListener("change", isAllChecked)
+  );
+};
+
 renderMembers(membersData);
+addCheckboxListeners();
 
 searchButton.addEventListener("click", () => {
   const filters = {
@@ -30,6 +38,7 @@ searchButton.addEventListener("click", () => {
 
   const filteredMembers = filterMembers(membersData, filters);
   renderMembers(filteredMembers);
+  addCheckboxListeners();
 });
 
 resetButton.addEventListener("click", resetMembers);
@@ -40,4 +49,5 @@ deleteButton.addEventListener("click", () => {
   checkAll.checked = false;
   membersData = deleteMember(membersData);
   renderMembers(membersData);
+  addCheckboxListeners();
 });

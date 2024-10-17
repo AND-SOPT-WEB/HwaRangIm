@@ -5,4 +5,12 @@ const checkAllBtn = (e) => {
   });
 };
 
-export default checkAllBtn;
+const isAllChecked = () => {
+  const checkBoxes = document.querySelectorAll(".check-item");
+  const checkAll = document.querySelector("#check-all-btn");
+  const checked = document.querySelectorAll(".check-item:checked").length;
+
+  checkAll.checked = checkBoxes.length === checked;
+};
+
+export { checkAllBtn, isAllChecked };
