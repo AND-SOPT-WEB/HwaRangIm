@@ -142,7 +142,7 @@ main {
 
 table {
   width: 100%;
-  border: 1px solid var(--black);
+  border: 1px solid var(--purple4);
   margin-top: 0.8rem;
 }
 thead {
@@ -156,9 +156,15 @@ td {
   font-size: 1.2rem;
   vertical-align: middle;
   text-align: center;
-  border-bottom: 1px solid var(--black);
+  border-bottom: 1px solid var(--purple4);
 }
 th,
 td:not(:last-child) {
-  border-right: 1px solid var(--black);
+  border-right: 1px solid var(--purple4);
+}
+
+tbody {
+  tr {
+    background-color: var(--white);
+  }
 }

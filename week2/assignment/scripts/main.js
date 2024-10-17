@@ -13,14 +13,14 @@ const addButton = document.querySelector(".add-button");
 const modal = document.getElementById("modal");
 const modalCloseBtn = document.getElementById("modal-close");
 const addMemberForm = document.querySelector(".modal-form");
-// const addMemberBtn = document.querySelector(".add-member");
 
+//membersData 저장 및 초기화
 if (!localStorage.getItem("membersData")) {
   localStorage.setItem("membersData", JSON.stringify(members));
 }
-
 let membersData = JSON.parse(localStorage.getItem("membersData"));
 
+//체크박스 검증 함수
 const addCheckboxListeners = () => {
   const checkBoxes = document.querySelectorAll(".check-item");
   checkBoxes.forEach((checkbox) =>
@@ -28,9 +28,11 @@ const addCheckboxListeners = () => {
   );
 };
 
+//초기 렌더링
 renderMembers(membersData);
 addCheckboxListeners();
 
+//검색 버튼 이벤트
 searchButton.addEventListener("click", () => {
   const filters = {
     name: document.querySelector("#name").value,
@@ -47,10 +49,13 @@ searchButton.addEventListener("click", () => {
   addCheckboxListeners();
 });
 
+//초기화 버튼 이벤트
 resetButton.addEventListener("click", resetMembers);
 
+//체크박스 전체선택 이벤트
 checkAll.addEventListener("change", (e) => checkAllBtn(e));
 
+//선택삭제 버튼 이벤트
 deleteButton.addEventListener("click", () => {
   checkAll.checked = false;
   membersData = deleteMember(membersData);
@@ -58,6 +63,7 @@ deleteButton.addEventListener("click", () => {
   addCheckboxListeners();
 });
 
+//모달 관련 이벤트
 addButton.addEventListener("click", () => {
   modal.showModal();
 });
@@ -67,7 +73,6 @@ modalCloseBtn.addEventListener("click", () => {
 modal.addEventListener("click", (e) => {
   if (e.target === e.currentTarget) modal.close();
 });
-
 addMemberForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const newMember = addNewMember(membersData);

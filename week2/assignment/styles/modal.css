@@ -17,6 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 
   h1 {
     font-size: 1.8rem;
@@ -31,12 +32,14 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
 }
 
 .form-item {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  width: 100%;
 
   label {
     color: var(--purple2);
