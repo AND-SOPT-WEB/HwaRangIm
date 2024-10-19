@@ -59,6 +59,7 @@ checkAll.addEventListener("change", (e) => checkAllBtn(e));
 deleteButton.addEventListener("click", () => {
   checkAll.checked = false;
   membersData = deleteMember(membersData);
+  localStorage.setItem("membersData", JSON.stringify(membersData));
   renderMembers(membersData);
   addCheckboxListeners();
 });
@@ -78,6 +79,7 @@ addMemberForm.addEventListener("submit", (e) => {
   const newMember = addNewMember(membersData);
   if (newMember) {
     membersData.push(newMember);
+    localStorage.setItem("membersData", JSON.stringify(membersData));
     renderMembers(membersData);
     addCheckboxListeners();
     modal.close();
