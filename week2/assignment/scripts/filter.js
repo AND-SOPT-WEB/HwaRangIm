@@ -24,7 +24,15 @@ const filterMembers = (membersData, filters) => {
 };
 
 const resetMembers = () => {
-  window.location.reload();
+  document.querySelector("#name").value = "";
+  document.querySelector("#eng-name").value = "";
+  document.querySelector("#github").value = "";
+  document.querySelector("#gender").value = "";
+  document.querySelector("#role").value = "";
+  document.querySelector("#week1-group").value = "";
+  document.querySelector("#week2-group").value = "";
+
+  //   window.location.reload();
 };
 
 export { filterMembers, resetMembers };
