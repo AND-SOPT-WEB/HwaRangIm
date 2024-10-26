@@ -32,7 +32,7 @@ const resetMembers = () => {
   document.querySelector("#week1-group").value = "";
   document.querySelector("#week2-group").value = "";
 
-  //   window.location.reload();
+  window.location.reload();
 };
 
 export { filterMembers, resetMembers };
