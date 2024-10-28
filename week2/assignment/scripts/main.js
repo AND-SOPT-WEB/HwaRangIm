@@ -20,17 +20,8 @@ if (!localStorage.getItem("membersData")) {
 }
 let membersData = JSON.parse(localStorage.getItem("membersData"));
 
-//체크박스 검증 함수
-const addCheckboxListeners = () => {
-  const checkBoxes = document.querySelectorAll(".check-item");
-  checkBoxes.forEach((checkbox) =>
-    checkbox.addEventListener("change", isAllChecked)
-  );
-};
-
 //초기 렌더링
 renderMembers(membersData);
-addCheckboxListeners();
 
 //검색 버튼 이벤트
 searchButton.addEventListener("click", () => {
@@ -46,14 +37,10 @@ searchButton.addEventListener("click", () => {
 
   const filteredMembers = filterMembers(membersData, filters);
   renderMembers(filteredMembers);
-  addCheckboxListeners();
 });
 
 //초기화 버튼 이벤트
 resetButton.addEventListener("click", resetMembers);
-
-//체크박스 전체선택 이벤트
-checkAll.addEventListener("change", (e) => checkAllBtn(e));
 
 //선택삭제 버튼 이벤트
 deleteButton.addEventListener("click", () => {
@@ -61,7 +48,6 @@ deleteButton.addEventListener("click", () => {
   membersData = deleteMember(membersData);
   localStorage.setItem("membersData", JSON.stringify(membersData));
   renderMembers(membersData);
-  addCheckboxListeners();
 });
 
 //모달 관련 이벤트
@@ -81,8 +67,17 @@ addMemberForm.addEventListener("submit", (e) => {
     membersData.push(newMember);
     localStorage.setItem("membersData", JSON.stringify(membersData));
     renderMembers(membersData);
-    addCheckboxListeners();
     modal.close();
     addMemberForm.reset();
+  }
+});
+
+//체크박스 전체선택 이벤트
+checkAll.addEventListener("change", (e) => checkAllBtn(e));
+
+//이벤트 위임을 통한 전체 체크박스 검증
+document.querySelector("tbody").addEventListener("change", (e) => {
+  if (e.target.classList.contains("check-item")) {
+    isAllChecked();
   }
 });
