@@ -1,0 +1,170 @@
+/* header */
+.header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 1.7rem 1rem;
+  background-color: var(--purple2);
+}
+.header span {
+  display: flex;
+  justify-content: flex-start;
+  width: 33.3%;
+}
+.header h1 {
+  display: flex;
+  justify-content: center;
+  width: 33.3%;
+  font-size: 3.6rem;
+  font-weight: 600;
+}
+.header h4 {
+  display: flex;
+  justify-content: flex-end;
+  width: 33.3%;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--white);
+}
+
+main {
+  width: 60%;
+  margin: 0 auto;
+}
+
+/* filter section */
+.filter-section {
+  width: 100%;
+  padding: 1.8rem;
+  background-color: var(--lightgray2);
+
+  margin-top: 2rem;
+}
+
+.filter {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100%;
+  gap: 0.5rem 0.8rem;
+}
+.filter-item {
+  display: flex;
+  grid-column: span 1;
+
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 8rem;
+    height: 5rem;
+    padding: 0 0.2rem;
+    background-color: var(--purple3);
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    cursor: pointer;
+  }
+
+  input,
+  select {
+    flex-grow: 1;
+    border: none;
+    padding: 1rem;
+    font-size: 1.4rem;
+    outline: none;
+  }
+}
+
+.filter-item.full-width {
+  grid-column: span 6;
+}
+
+.filter-item.one-third-width {
+  grid-column: span 2;
+}
+.filter-item.half-width {
+  grid-column: span 3;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.reset-button,
+.search-button {
+  width: 100%;
+  height: 4rem;
+  border-radius: 6px;
+  color: var(--white);
+
+  cursor: pointer;
+}
+
+.reset-button {
+  background-color: var(--purple1);
+}
+.search-button {
+  background-color: var(--purple4);
+}
+
+/* member-list */
+.member-list-section {
+  width: 100%;
+  margin-top: 5rem;
+}
+.member-list-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.delete-button,
+.add-button {
+  width: 9rem;
+  height: 3rem;
+  border-radius: 6px;
+  color: var(--white);
+
+  cursor: pointer;
+}
+.delete-button {
+  background-color: var(--purple1);
+}
+.add-button {
+  background-color: var(--purple4);
+}
+
+table {
+  width: 100%;
+  border: 1px solid var(--purple4);
+  margin-top: 0.8rem;
+}
+thead {
+  background-color: var(--purple3);
+  color: var(--white);
+  font-weight: 700;
+}
+th,
+td {
+  height: 3rem;
+  font-size: 1.2rem;
+  vertical-align: middle;
+  text-align: center;
+  border-bottom: 1px solid var(--purple4);
+}
+th,
+td:not(:last-child) {
+  border-right: 1px solid var(--purple4);
+}
+
+tbody {
+  tr {
+    background-color: var(--white);
+  }
+}
