@@ -37,6 +37,7 @@ searchButton.addEventListener("click", () => {
 
   const filteredMembers = filterMembers(membersData, filters);
   renderMembers(filteredMembers);
+  isAllChecked();
 });
 
 //초기화 버튼 이벤트

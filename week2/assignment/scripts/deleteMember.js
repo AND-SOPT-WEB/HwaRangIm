@@ -3,7 +3,6 @@ const deleteMember = (membersData) => {
   const checkedTrsId = Array.from(checkedInputs).map((checkedInput) =>
     parseInt(checkedInput.closest("tr").id)
   );
-
   const updatedMembersData = membersData.filter(
     (member) => !checkedTrsId.includes(member.id)
   );
