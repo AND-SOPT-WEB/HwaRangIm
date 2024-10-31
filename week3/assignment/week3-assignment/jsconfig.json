@@ -4,7 +4,8 @@
     "jsxImportSource": "@emotion/react",
     "paths": {
       "@components/*": ["components/*"],
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["pages/*"],
+      "@hooks/*": ["hooks/*"]
     }
   },
   "include": ["src", "vite.config.js"]

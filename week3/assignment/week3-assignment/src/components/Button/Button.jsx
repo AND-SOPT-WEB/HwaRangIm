@@ -1,11 +1,10 @@
 import { buttonStyle, variantStyle } from "./Button.style";
 
-const Button = ({ variant, isSelected, onClick, value, children }) => {
+const Button = ({ variant, isSelected, onClick, children }) => {
   return (
     <button
       css={[buttonStyle(isSelected), variantStyle[variant]]}
       onClick={onClick}
-      value={value}
     >
       {children}
     </button>
