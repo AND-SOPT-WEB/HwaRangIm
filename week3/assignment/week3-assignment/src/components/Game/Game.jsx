@@ -1,5 +1,7 @@
 import useMakeGame from "@hooks/useMakeGame";
 import { useEffect, useState } from "react";
+import { NumberCard } from "@components";
+import { gameContainer, gameWrapper, nextNumSpanStyle } from "./Game.style";
 
 const Game = ({ level }) => {
   const { gridSize, maxNum, generateNumbers } = useMakeGame(level);
@@ -38,16 +40,16 @@ const Game = ({ level }) => {
     }
   }, [currentNumber]);
   return (
-    <div>
-      <span>다음 숫자: {currentNumber}</span>
-      <div>
+    <main css={gameContainer}>
+      <span css={nextNumSpanStyle}>다음 숫자: {currentNumber}</span>
+      <section css={gameWrapper}>
         {boardNumbers.map((number, i) => (
-          <button key={i} onClick={() => handleNumberClick(number)}>
+          <NumberCard key={i} onClick={() => handleNumberClick(number)}>
             {number}
-          </button>
+          </NumberCard>
         ))}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 
