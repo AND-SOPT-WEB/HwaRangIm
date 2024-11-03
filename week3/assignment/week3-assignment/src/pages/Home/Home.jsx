@@ -8,9 +8,16 @@ const Home = () => {
   const handleTabChange = (tab) => {
     setTab(tab);
   };
+  const handleLevelSelect = (level) => {
+    setLevel(level);
+  };
   return (
     <>
-      <Header tab={tab} handleTabChange={handleTabChange} />
+      <Header
+        tab={tab}
+        handleTabChange={handleTabChange}
+        handleLevelSelect={handleLevelSelect}
+      />
       <main>{tab === "game" ? <Game level={level} /> : <Ranking />}</main>
     </>
   );

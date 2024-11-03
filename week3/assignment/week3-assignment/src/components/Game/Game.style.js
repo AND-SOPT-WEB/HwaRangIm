@@ -17,8 +17,8 @@ export const nextNumSpanStyle = css`
   color: ${Theme.color.purple1};
 `;
 
-export const gameWrapper = css`
+export const gameWrapper = (row) => css`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(${row}, 1fr);
   gap: 0.5rem;
 `;
