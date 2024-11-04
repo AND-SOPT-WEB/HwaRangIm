@@ -6,8 +6,16 @@ import {
   tbodyStyle,
   theadStyle,
 } from "./Ranking.style";
+import { useEffect, useState } from "react";
+import { formatDate } from "@utils/formatDate";
 
 const Ranking = () => {
+  const [rankings, setRankings] = useState([]);
+
+  useEffect(() => {
+    const savedResults = JSON.parse(localStorage.getItem("gameResults")) || [];
+    setRankings(savedResults);
+  }, []);
   return (
     <section css={rankingContainer}>
       <div css={rankingHeaderStyle}>
@@ -25,11 +33,13 @@ const Ranking = () => {
           </tr>
         </thead>
         <tbody css={tbodyStyle}>
-          <tr>
-            <td>2024.11.04 오후 05시 30분</td>
-            <td>Level1</td>
-            <td>10.10초</td>
-          </tr>
+          {rankings.map((result, i) => (
+            <tr key={i}>
+              <td>{formatDate(result.timestamp)}</td>
+              <td>Level{result.level}</td>
+              <td>{result.time} 초</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </section>

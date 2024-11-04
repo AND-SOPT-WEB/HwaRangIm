@@ -1,3 +1,4 @@
+import { saveGameResult } from "@utils/saveGame";
 import { useEffect, useState } from "react";
 
 const shuffleArray = (array) => {
@@ -13,7 +14,6 @@ const generateNumbers = (start, end) => {
 };
 
 const useMakeGame = (level, time, handleTimeChange) => {
-  console.log(time);
   const row = level + 2;
   const gridSize = row * row;
   const maxNum = gridSize * 2;
@@ -37,6 +37,7 @@ const useMakeGame = (level, time, handleTimeChange) => {
       }
       if (number === maxNum) {
         clearInterval(intervalId);
+        saveGameResult(time, level);
         alert(time);
         setBoardNumbers(generateNumbers(1, gridSize));
         setNextNumbers(generateNumbers(gridSize + 1, maxNum));
