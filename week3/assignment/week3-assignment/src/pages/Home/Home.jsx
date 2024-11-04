@@ -1,5 +1,6 @@
 import { Header, Game, Ranking } from "@components";
 import { useState } from "react";
+import { mainStyle } from "./Home.style";
 
 const Home = () => {
   const [tab, setTab] = useState("game");
@@ -23,7 +24,7 @@ const Home = () => {
         handleTabChange={handleTabChange}
         handleLevelSelect={handleLevelSelect}
       />
-      <main>
+      <main css={mainStyle}>
         {tab === "game" ? (
           <Game level={level} time={time} handleTimeChange={handleTimeChange} />
         ) : (

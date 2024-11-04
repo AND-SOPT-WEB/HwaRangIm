@@ -10,9 +10,16 @@ export const buttonStyle = (isClicked) => css`
 `;
 
 export const variantStyle = {
-  small: css`
+  tab: css`
     height: 3rem;
     padding: 0.4rem 1.2rem;
     border-radius: 7px;
+  `,
+  reset: css`
+    width: 7rem;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    background-color: ${Theme.color.purple2};
+    color: ${Theme.color.white};
   `,
 };

@@ -11,7 +11,7 @@ const Game = ({ level, time, handleTimeChange }) => {
   );
 
   return (
-    <main css={gameContainer}>
+    <section css={gameContainer}>
       <span css={nextNumSpanStyle}>다음 숫자: {currentNumber}</span>
       <section css={gameWrapper(row)}>
         {boardNumbers.map((number, i) => (
@@ -20,7 +20,7 @@ const Game = ({ level, time, handleTimeChange }) => {
           </NumberCard>
         ))}
       </section>
-    </main>
+    </section>
   );
 };
 

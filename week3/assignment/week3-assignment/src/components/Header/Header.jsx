@@ -8,14 +8,14 @@ const Header = ({ tab, time, handleTabChange, handleLevelSelect }) => {
         <h1>1 to 50</h1>
         <div>
           <Button
-            variant="small"
+            variant="tab"
             isSelected={tab === "game"}
             onClick={() => handleTabChange("game")}
           >
             게임
           </Button>
           <Button
-            variant="small"
+            variant="tab"
             isSelected={tab === "ranking"}
             onClick={() => handleTabChange("ranking")}
           >
@@ -23,14 +23,18 @@ const Header = ({ tab, time, handleTabChange, handleLevelSelect }) => {
           </Button>
         </div>
       </div>
-      <div css={headerRight}>
-        <select onChange={(e) => handleLevelSelect(Number(e.target.value))}>
-          <option value="1">Level1</option>
-          <option value="2">Level2</option>
-          <option value="3">Level3</option>
-        </select>
-        <div>{time}</div>
-      </div>
+      {tab === "game" ? (
+        <div css={headerRight}>
+          <select onChange={(e) => handleLevelSelect(Number(e.target.value))}>
+            <option value="1">Level1</option>
+            <option value="2">Level2</option>
+            <option value="3">Level3</option>
+          </select>
+          <div>{time}</div>
+        </div>
+      ) : (
+        <></>
+      )}
     </header>
   );
 };
