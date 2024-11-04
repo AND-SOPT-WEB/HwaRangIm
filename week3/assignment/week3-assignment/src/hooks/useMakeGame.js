@@ -26,6 +26,7 @@ const useMakeGame = (level, time, handleTimeChange) => {
   const [currentNumber, setCurrentNumber] = useState(1);
 
   const [intervalId, setIntervalId] = useState(null);
+  const [isFinishGame, setIsFinishGame] = useState(false);
 
   const handleNumberClick = (number) => {
     if (number === currentNumber) {
@@ -38,11 +39,7 @@ const useMakeGame = (level, time, handleTimeChange) => {
       if (number === maxNum) {
         clearInterval(intervalId);
         saveGameResult(time, level);
-        alert(time);
-        setBoardNumbers(generateNumbers(1, gridSize));
-        setNextNumbers(generateNumbers(gridSize + 1, maxNum));
-        setCurrentNumber(1);
-        handleTimeChange(0);
+        setIsFinishGame(true);
         return;
       }
 
@@ -62,9 +59,21 @@ const useMakeGame = (level, time, handleTimeChange) => {
     }
   };
 
+  const closeModal = () => {
+    setBoardNumbers(generateNumbers(1, gridSize));
+    setNextNumbers(generateNumbers(gridSize + 1, maxNum));
+    setIsFinishGame(false);
+    setCurrentNumber(1);
+    handleTimeChange(0);
+  };
+
   useEffect(() => {
     setBoardNumbers(generateNumbers(1, gridSize));
     setNextNumbers(generateNumbers(gridSize + 1, maxNum));
+    setIsFinishGame(false);
+    clearInterval(intervalId);
+    setCurrentNumber(1);
+    handleTimeChange(0);
     return () => clearInterval(intervalId);
   }, [level]);
 
@@ -72,6 +81,8 @@ const useMakeGame = (level, time, handleTimeChange) => {
     row,
     boardNumbers,
     currentNumber,
+    isFinishGame,
+    closeModal,
     generateNumbers,
     handleNumberClick,
   };

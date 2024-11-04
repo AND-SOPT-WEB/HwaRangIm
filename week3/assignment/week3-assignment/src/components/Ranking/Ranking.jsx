@@ -49,7 +49,7 @@ const Ranking = () => {
           {rankings.map((result, i) => (
             <tr key={i}>
               <td>{formatDate(result.timestamp)}</td>
-              <td>Level{result.level}</td>
+              <td>Level {result.level}</td>
               <td>{result.time} 초</td>
             </tr>
           ))}

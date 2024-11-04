@@ -3,5 +3,6 @@ import Game from "./Game/Game";
 import Ranking from "./Ranking/Ranking";
 import Button from "./Button/Button";
 import NumberCard from "./NumberCard/NumberCard";
+import Modal from "./Modal/Modal";
 
-export { Header, Game, Ranking, Button, NumberCard };
+export { Header, Game, Ranking, Button, NumberCard, Modal };
