@@ -21,11 +21,14 @@ export const modalContainer = css`
   transform: translate(-50%, -50%);
   z-index: 2;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   width: 20rem;
-  height: 20rem;
+  height: 15rem;
+
+  padding: 2rem;
 
   border-radius: 10px;
   background-color: ${Theme.color.lightgray2};
@@ -34,4 +37,10 @@ export const modalContainer = css`
 export const modalTextStyle = css`
   color: ${Theme.color.purple2};
   ${Theme.font.large}
+  margin-top: 3rem;
+`;
+
+export const buttonStyle = css`
+  margin-top: auto;
+  background-color: ${Theme.color.purple2};
 `;
