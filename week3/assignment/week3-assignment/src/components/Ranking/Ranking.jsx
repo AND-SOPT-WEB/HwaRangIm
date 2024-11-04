@@ -14,14 +14,27 @@ const Ranking = () => {
 
   useEffect(() => {
     const savedResults = JSON.parse(localStorage.getItem("gameResults")) || [];
-    setRankings(savedResults);
+    const sortedResults = savedResults.sort((a, b) => {
+      if (b.level === a.level) {
+        return a.time - b.time;
+      }
+      return b.level - a.level;
+    });
+    setRankings(sortedResults);
   }, []);
+
+  const handleResetClick = () => {
+    localStorage.removeItem("gameResults");
+    setRankings([]);
+  };
   return (
     <section css={rankingContainer}>
       <div css={rankingHeaderStyle}>
         <h1>랭킹</h1>
         <div>
-          <Button variant="reset">초기화</Button>
+          <Button variant="reset" onClick={handleResetClick}>
+            초기화
+          </Button>
         </div>
       </div>
       <table css={tableStyle}>
