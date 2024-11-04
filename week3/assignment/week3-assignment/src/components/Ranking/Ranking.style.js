@@ -6,6 +6,8 @@ export const rankingContainer = css`
   flex-direction: column;
   align-items: center;
   width: 50rem;
+  max-height: 70rem;
+  overflow-y: auto;
   gap: 1rem;
   margin: 0 auto;
   padding: 2rem;
@@ -31,7 +33,6 @@ export const rankingHeaderStyle = css`
 
 export const tableStyle = css`
   width: 100%;
-
   &,
   th,
   td {
@@ -45,10 +46,12 @@ export const tableStyle = css`
 `;
 
 export const theadStyle = css`
+  width: 100%;
   background-color: ${Theme.color.purple2};
   color: ${Theme.color.white};
 `;
 
 export const tbodyStyle = css`
+  width: 100%;
   background-color: ${Theme.color.purple5};
 `;

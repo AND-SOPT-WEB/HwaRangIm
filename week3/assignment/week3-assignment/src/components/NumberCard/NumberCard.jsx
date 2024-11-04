@@ -1,8 +1,8 @@
 import { numberCardStyle } from "./NumberCard.style";
 
-const NumberCard = ({ onClick, children }) => {
+const NumberCard = ({ onClick, children, id }) => {
   return (
-    <button css={numberCardStyle(children)} onClick={onClick}>
+    <button css={numberCardStyle(children)} id={id} onClick={onClick}>
       {children}
     </button>
   );

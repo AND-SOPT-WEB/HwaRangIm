@@ -19,7 +19,11 @@ const Game = ({ level, time, handleTimeChange }) => {
         <span css={nextNumSpanStyle}>다음 숫자: {currentNumber}</span>
         <section css={gameWrapper(row)}>
           {boardNumbers.map((number, i) => (
-            <NumberCard key={i} onClick={() => handleNumberClick(number)}>
+            <NumberCard
+              key={i}
+              id={`card-${number}`}
+              onClick={() => handleNumberClick(number)}
+            >
               {number}
             </NumberCard>
           ))}

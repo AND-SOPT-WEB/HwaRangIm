@@ -28,8 +28,12 @@ const useMakeGame = (level, time, handleTimeChange) => {
   const [intervalId, setIntervalId] = useState(null);
   const [isFinishGame, setIsFinishGame] = useState(false);
 
+  const clickedCards = document.querySelectorAll("[id^='card-']");
+
   const handleNumberClick = (number) => {
+    const clickedCard = document.getElementById(`card-${currentNumber}`);
     if (number === currentNumber) {
+      clickedCard.classList.add("clicked");
       if (currentNumber === 1) {
         const id = setInterval(() => {
           handleTimeChange((prev) => parseFloat((prev + 0.01).toFixed(2)));
@@ -55,11 +59,13 @@ const useMakeGame = (level, time, handleTimeChange) => {
         );
         setBoardNumbers(updatedBoard);
       }
+      clickedCard.classList.remove(`card-${currentNumber}`);
       setCurrentNumber(currentNumber + 1);
     }
   };
 
   const closeModal = () => {
+    clickedCards.forEach((card) => card.classList.remove("clicked"));
     setBoardNumbers(generateNumbers(1, gridSize));
     setNextNumbers(generateNumbers(gridSize + 1, maxNum));
     setIsFinishGame(false);
@@ -68,6 +74,7 @@ const useMakeGame = (level, time, handleTimeChange) => {
   };
 
   useEffect(() => {
+    clickedCards.forEach((card) => card.classList.remove("clicked"));
     setBoardNumbers(generateNumbers(1, gridSize));
     setNextNumbers(generateNumbers(gridSize + 1, maxNum));
     setIsFinishGame(false);
