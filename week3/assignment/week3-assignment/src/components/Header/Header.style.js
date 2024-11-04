@@ -34,6 +34,7 @@ export const headerRight = css`
   }
 
   div {
+    width: 4rem;
     padding-top: 0.2rem;
     color: ${Theme.color.white};
     ${Theme.font.large};

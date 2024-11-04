@@ -12,7 +12,8 @@ const generateNumbers = (start, end) => {
   return shuffleArray(numbers);
 };
 
-const useMakeGame = (level) => {
+const useMakeGame = (level, time, handleTimeChange) => {
+  console.log(time);
   const row = level + 2;
   const gridSize = row * row;
   const maxNum = gridSize * 2;
@@ -24,15 +25,26 @@ const useMakeGame = (level) => {
   );
   const [currentNumber, setCurrentNumber] = useState(1);
 
+  const [intervalId, setIntervalId] = useState(null);
+
   const handleNumberClick = (number) => {
     if (number === currentNumber) {
+      if (currentNumber === 1) {
+        const id = setInterval(() => {
+          handleTimeChange((prev) => parseFloat((prev + 0.01).toFixed(2)));
+        }, 10);
+        setIntervalId(id);
+      }
       if (number === maxNum) {
-        alert("끝");
+        clearInterval(intervalId);
+        alert(time);
         setBoardNumbers(generateNumbers(1, gridSize));
         setNextNumbers(generateNumbers(gridSize + 1, maxNum));
         setCurrentNumber(1);
+        handleTimeChange(0);
         return;
       }
+
       if (currentNumber <= gridSize) {
         const newNumber = nextNumbers.pop();
         const updatedBoard = boardNumbers.map((num) =>
@@ -52,6 +64,7 @@ const useMakeGame = (level) => {
   useEffect(() => {
     setBoardNumbers(generateNumbers(1, gridSize));
     setNextNumbers(generateNumbers(gridSize + 1, maxNum));
+    return () => clearInterval(intervalId);
   }, [level]);
 
   return {

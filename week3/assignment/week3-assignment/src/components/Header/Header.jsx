@@ -1,7 +1,7 @@
 import { Button } from "@components";
 import { headerLeft, headerRight, headerStyle } from "./Header.style";
 
-const Header = ({ tab, handleTabChange, handleLevelSelect }) => {
+const Header = ({ tab, time, handleTabChange, handleLevelSelect }) => {
   return (
     <header css={headerStyle}>
       <div css={headerLeft}>
@@ -29,7 +29,7 @@ const Header = ({ tab, handleTabChange, handleLevelSelect }) => {
           <option value="2">Level2</option>
           <option value="3">Level3</option>
         </select>
-        <div>0</div>
+        <div>{time}</div>
       </div>
     </header>
   );

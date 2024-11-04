@@ -3,13 +3,12 @@ import useMakeGame from "@hooks/useMakeGame";
 import { NumberCard } from "@components";
 import { gameContainer, gameWrapper, nextNumSpanStyle } from "./Game.style";
 
-const Game = ({ level }) => {
-  const {
-    row,
-    boardNumbers,
-    currentNumber,
-    handleNumberClick,
-  } = useMakeGame(level);
+const Game = ({ level, time, handleTimeChange }) => {
+  const { row, boardNumbers, currentNumber, handleNumberClick } = useMakeGame(
+    level,
+    time,
+    handleTimeChange
+  );
 
   return (
     <main css={gameContainer}>
