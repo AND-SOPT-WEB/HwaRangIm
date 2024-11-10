@@ -27,6 +27,7 @@ const Login = () => {
     const { success, result, error } = await postLogin(formData);
     if (success) {
       alert(`로그인 성공: ${result}`);
+      localStorage.setItem("token", result?.data.result.token);
       navigate("/mypage");
     } else {
       alert(`로그인 실패: ${error}`);
