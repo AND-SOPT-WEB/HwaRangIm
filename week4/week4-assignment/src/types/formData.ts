@@ -12,3 +12,8 @@ export interface SignupContextType {
   handlePasswordCheckChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleHobbyChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
+
+export interface loginFormDataType {
+  name: string;
+  password: string;
+}
