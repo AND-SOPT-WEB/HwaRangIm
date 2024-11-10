@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/common/Button/Button";
 import { headerLeft, headerRight, headerStyle } from "./Header.style";
 
@@ -6,6 +7,11 @@ export interface HeaderProps {
 }
 
 const Header = ({ handleTabChange }: HeaderProps) => {
+  const navigate = useNavigate();
+  const handleLogoutClick = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
   return (
     <header css={headerStyle}>
       <div css={headerLeft}>
@@ -18,7 +24,7 @@ const Header = ({ handleTabChange }: HeaderProps) => {
         </Button>
       </div>
       <div css={headerRight}>
-        <Button variant="tab" onClick={() => {}}>
+        <Button variant="tab" onClick={handleLogoutClick}>
           로그아웃
         </Button>
       </div>
