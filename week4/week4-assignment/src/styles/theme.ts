@@ -13,6 +13,8 @@ const color = {
   purple4: "#BBB9FF",
   purple5: "#DDDCFF",
   purple6: "#EEEEFF",
+
+  error: "#FF4668",
 };
 
 const font = {
