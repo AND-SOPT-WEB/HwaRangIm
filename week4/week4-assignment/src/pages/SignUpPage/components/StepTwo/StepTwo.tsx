@@ -3,8 +3,8 @@ import { StepProps } from "../../../../types/nextStep";
 import Button from "../../../../components/common/Button/Button";
 import { Link } from "react-router-dom";
 import { loginLinkStyle, stepTwoContainer } from "./StepTwo.style";
-import { useSignup } from "../../../../hooks/useSignup";
 import { useState } from "react";
+import { useSignup } from "../../../../context/SignupContext";
 
 const StepTwo = ({ onNext }: StepProps) => {
   const { formData, handlePasswordChange, handlePasswordCheckChange } =
@@ -49,7 +49,10 @@ const StepTwo = ({ onNext }: StepProps) => {
         errorMessage="비밀번호가 일치하지 않습니다"
         onChange={handlePasswordCheckInputChange}
       />
-      <Button variant={(isPasswordValid && isPasswordCheckValid) ? "abled" : "disabled" } onClick={handleNextClick}>
+      <Button
+        variant={isPasswordValid && isPasswordCheckValid ? "abled" : "disabled"}
+        onClick={handleNextClick}
+      >
         다음
       </Button>
       <span>

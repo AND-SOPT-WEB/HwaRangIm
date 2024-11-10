@@ -2,8 +2,8 @@ import Input from "../../../../components/common/Input/Input";
 import { StepProps } from "../../../../types/nextStep";
 import { stepOneContainer } from "./StepOne.style";
 import Button from "../../../../components/common/Button/Button";
-import { useSignup } from "../../../../hooks/useSignup";
 import { useState } from "react";
+import { useSignup } from "../../../../context/SignupContext";
 
 const StepOne = ({ onNext }: StepProps) => {
   const { formData, handleNameChange } = useSignup();

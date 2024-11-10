@@ -2,8 +2,9 @@ import Input from "../../../../components/common/Input/Input";
 import Button from "../../../../components/common/Button/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { loginLinkStyle, stepThreeContainer } from "./StepThree.style";
-import { useSignup } from "../../../../hooks/useSignup";
 import { useState } from "react";
+import { postSignup } from "../../../../apis/postSignup";
+import { useSignup } from "../../../../context/SignupContext";
 
 const StepThree = () => {
   const { formData, handleHobbyChange } = useSignup();
@@ -14,8 +15,15 @@ const StepThree = () => {
     handleHobbyChange(e);
     setIsHobbyValid(e.target.value.length <= 8 && e.target.value.length > 0);
   };
-  const handleNextClick = () => {
-    navigate("/login");
+  const handleNextClick = async () => {
+    const { success, result, error } = await postSignup(formData);
+    console.log(success, result, error);
+    if (success) {
+      alert(`회원가입 성공: ${result}`);
+      navigate("/login");
+    } else {
+      alert(`회원가입 실패: ${error}`);
+    }
   };
   return (
     <section css={stepThreeContainer}>

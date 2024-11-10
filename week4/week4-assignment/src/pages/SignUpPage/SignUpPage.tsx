@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useFunnel } from "../../hooks/useFunnel";
 import SignUp from "./components/SignUp/SignUp";
 import { signUpPageLayoutStyle, signUpPageTextStyle } from "./SignUpPage.style";
+import { SignupProvider } from "../../context/SignupContext";
 
 const steps = ["name", "password", "hobby"];
 
@@ -11,12 +12,14 @@ const SignUpPage = () => {
   return (
     <section css={signUpPageLayoutStyle}>
       <h1 css={signUpPageTextStyle}>회원가입</h1>
-      <SignUp
-        steps={steps}
-        nextClickHandler={nextStep}
-        Funnel={Funnel}
-        Step={Step}
-      />
+      <SignupProvider>
+        <SignUp
+          steps={steps}
+          nextClickHandler={nextStep}
+          Funnel={Funnel}
+          Step={Step}
+        />
+      </SignupProvider>
     </section>
   );
 };
