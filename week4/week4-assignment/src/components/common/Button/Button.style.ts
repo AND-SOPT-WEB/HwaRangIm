@@ -30,10 +30,15 @@ export const variantStyle = {
     padding: 2rem;
   `,
   disabled: css`
-    background-color: ${Theme.color.lightgray};
+    background-color: ${Theme.color.lightgray2};
     color: ${Theme.color.black};
     ${Theme.font.large};
     padding: 2rem;
+
+    :hover {
+      color: ${Theme.color.black};
+      background-color: ${Theme.color.lightgray2};
+    }
   `,
 
   abled: css`
