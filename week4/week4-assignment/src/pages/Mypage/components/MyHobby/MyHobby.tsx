@@ -31,10 +31,13 @@ const MyHobby = () => {
       try {
         const result = await fetchOtherPeopleHobby(Number(otherPeopleNum));
         const hobby = result.result?.data.result.hobby;
-        console.log(hobby);
-        setOtherPeopleHobby(hobby);
+        if (hobby === undefined) {
+          alert("잘못된 번호입니다.");
+        } else {
+          setOtherPeopleHobby(hobby);
+        }
       } catch (error) {
-        console.log(error);
+        alert(error);
       }
     };
     getOtherPeopleHobby();

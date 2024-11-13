@@ -17,8 +17,10 @@ const StepThree = () => {
   };
   const handleNextClick = async () => {
     const { success, result, error } = await postSignup(formData);
+    const memberNo = result?.data.result.no;
+
     if (success) {
-      alert(`회원가입 성공: ${result}`);
+      alert(`회원가입 성공: ${memberNo}`);
       navigate("/login");
     } else {
       alert(`회원가입 실패: ${error}`);
