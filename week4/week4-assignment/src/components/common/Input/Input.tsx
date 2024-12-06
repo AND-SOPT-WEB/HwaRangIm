@@ -5,7 +5,9 @@ import {
   inputStyle,
   labelStyle,
   errorMessageStyle,
+  eyeIcon,
 } from "./Input.style";
+import { EyeSlashSolid, EyeSolid } from "../../../assets/svg";
 
 export interface InputProps extends HTMLAttributes<HTMLInputElement> {
   placeholder?: string;
@@ -30,11 +32,15 @@ const Input = ({
   ...props
 }: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
+  const [isSee, setIsSee] = useState(false);
   const handleFocus = () => {
     setIsFocused(true);
   };
   const handleBlur = () => {
     setIsFocused(false);
+  };
+  const handleEyeClick = () => {
+    setIsSee((prev) => !prev);
   };
   return (
     <div css={inputWrapperStyle}>
@@ -47,7 +53,9 @@ const Input = ({
         <input
           css={inputStyle}
           placeholder={placeholder}
-          type={type}
+          type={
+            type === "password" && name === "password" && isSee ? "text" : type
+          }
           value={value}
           id={name}
           name={name}
@@ -56,6 +64,13 @@ const Input = ({
           onBlur={handleBlur}
           {...props}
         />
+        {type === "password" &&
+          name === "password" &&
+          (isSee ? (
+            <EyeSolid css={eyeIcon} onClick={handleEyeClick} />
+          ) : (
+            <EyeSlashSolid css={eyeIcon} onClick={handleEyeClick} />
+          ))}
       </div>
       {isFocused && !isValid && (
         <div css={errorMessageStyle}>{errorMessage}</div>

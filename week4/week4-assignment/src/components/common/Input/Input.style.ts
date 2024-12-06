@@ -9,6 +9,7 @@ export const inputWrapperStyle = css({
   width: "100%",
 });
 export const inputLayoutStyle = css({
+  position: "relative",
   display: "flex",
   flexDirection: "column",
   gap: "1.6rem",
@@ -36,3 +37,12 @@ export const labelStyle = css`
 export const errorMessageStyle = css({
   color: Theme.color.error,
 });
+
+export const eyeIcon = css`
+  position: absolute;
+  top: 2.5rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+`;

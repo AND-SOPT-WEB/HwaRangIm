@@ -40,11 +40,11 @@ const StepTwo = ({ onNext }: StepProps) => {
         onChange={handlePasswordInputChange}
       />
       <Input
-        placeholder="비밀번호를 입력해주세요"
+        placeholder="비밀번호 확인"
         label="비밀번호"
         type="password"
         value={formData.passwordCheck}
-        name="password"
+        name="passwordCheck"
         isValid={isPasswordCheckValid}
         errorMessage="비밀번호가 일치하지 않습니다"
         onChange={handlePasswordCheckInputChange}
